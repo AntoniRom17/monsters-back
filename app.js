@@ -10,6 +10,8 @@ app.use(cors({ origin: /localhost/ }));
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.use("/auth", authRouter);
+
 app.route("/").get((req, res) => {
   res.send("Hello Lincoln!");
 });
