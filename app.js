@@ -1,3 +1,4 @@
+import authRouter from "#routes/auth";
 import morgan from "morgan";
 import express from "express";
 import cors from "cors";
