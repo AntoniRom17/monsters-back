@@ -16,7 +16,6 @@ app.use(morgan("dev"));
 app.use("/auth", authRouter);
 app.use("/departments", departmentsRouter);
 app.use("/professors", professorsRouter);
-console.log("professors route loaded");
 
 app.route("/").get((req, res) => {
   res.send("Hello Lincoln!");

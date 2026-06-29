@@ -20,18 +20,13 @@ router.get("/", async (req, res) => {
 
 // Create new department //
 router.post("/", authenticate, async (req, res) => {
-  if (!req.body) res.status(400).send("Request body is required");
+  if (!req.body) return res.status(400).send("Request body is required");
 
   const { name, description, imageUrl, contactEmail } = req.body;
   if (!name || !description || !imageUrl || !contactEmail)
-    res.status(400).send("Request body can't be missing any fields");
+    return res.status(400).send("Request body can't be missing any fields");
 
-  const department = await createDepartment(
-    name,
-    description,
-    imageUrl,
-    contactEmail,
-  );
+  const department = await createDepartment(name, description, imageUrl, contactEmail);
   res.status(201).send(department);
 });
 
@@ -53,13 +48,13 @@ router.delete("/:id", authenticate, async (req, res) => {
   res.sendStatus(204);
 });
 
-// Update a single department//
-router.put(":/id", authenticate, async (req, res) => {
-  if (!req.body) res.status(400).send("Request body is required");
+// Update a single department //
+router.put("/:id", authenticate, async (req, res) => {
+  if (!req.body) return res.status(400).send("Request body is required");
 
   const { name, description, imageUrl, contactEmail } = req.body;
   if (!name || !description || !imageUrl || !contactEmail)
-    res.status(400).send("Request body can't be missing any fields");
+    return res.status(400).send("Request body can't be missing any fields");
 
   const updatedDepartment = await updateDepartment({
     id: req.department.id,
