@@ -19,8 +19,10 @@ CREATE TABLE departments (
 CREATE TABLE professors (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
+  title TEXT,
   bio TEXT,
   profile_image TEXT,
   email TEXT,
+  office TEXT,
   department_id INTEGER REFERENCES departments(id)
 );

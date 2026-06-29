@@ -53,74 +53,92 @@ async function seed() {
   const professors = [
     {
       name: "Dean Abigail Hardscrabble",
+      title: "Dean of the School of Scaring",
       bio: "Dean Hardscrabble is a legendary scarer known for exacting standards, sharp instincts, and an unforgettable entrance.",
       profile_image: "https://picsum.photos/seed/hardscrabble/200/200",
       email: "hardscrabble@monstersuniversity.edu",
+      office: "Scare Hall 101",
       department_id: scaring.rows[0].id,
     },
     {
       name: "Professor Derek Knight",
+      title: "Scaring 101 Instructor",
       bio: "Professor Knight introduces first-year monsters to scare fundamentals, classroom discipline, and the importance of practice.",
       profile_image: "https://picsum.photos/seed/knight/200/200",
       email: "dknight@monstersuniversity.edu",
+      office: "Scare Hall 204",
       department_id: scaring.rows[0].id,
     },
     {
       name: "Mike Wazowski",
+      title: "Guest Lecturer in Scare Strategy",
       bio: "Mike teaches planning, research, teamwork, and why a monster should never underestimate careful preparation.",
       profile_image: "https://picsum.photos/seed/mike/200/200",
       email: "mwazowski@monstersuniversity.edu",
+      office: "Scare Hall 212",
       department_id: scaring.rows[0].id,
     },
     {
       name: "James P. Sullivan",
+      title: "Guest Lecturer in Applied Scaring",
       bio: "Sullivan shares field experience from Monsters, Inc. and helps students understand presence, timing, and confidence.",
       profile_image: "https://picsum.photos/seed/sully/200/200",
       email: "jsullivan@monstersuniversity.edu",
+      office: "Scare Hall 213",
       department_id: scaring.rows[0].id,
     },
     {
       name: "Randall Boggs",
+      title: "Camouflage Systems Lecturer",
       bio: "Randall studies stealth, visual adaptation, and the risks of relying on talent without teamwork.",
       profile_image: "https://picsum.photos/seed/randall/200/200",
       email: "rboggs@monstersuniversity.edu",
+      office: "Innovation Hall 118",
       department_id: doors.rows[0].id,
     },
     {
       name: "Roz",
+      title: "Instructor of Records and Compliance",
       bio: "Roz teaches careful paperwork, secure records, and the terrifying power of a missing form.",
       profile_image: "https://picsum.photos/seed/roz/200/200",
       email: "roz@monstersuniversity.edu",
+      office: "Innovation Hall 009",
       department_id: doors.rows[0].id,
     },
     {
       name: "Celia Mae",
+      title: "Scream Operations Coordinator",
       bio: "Celia helps students understand floor communication, customer service, and energy operations behind the scenes.",
       profile_image: "https://picsum.photos/seed/celia/200/200",
       email: "cmae@monstersuniversity.edu",
+      office: "Energy Research Center 310",
       department_id: energy.rows[0].id,
     },
     {
       name: "Don Carlton",
+      title: "Leadership Seminar Instructor",
       bio: "Don brings a nontraditional student perspective to leadership, teamwork, and making a fresh start at MU.",
       profile_image: "https://picsum.photos/seed/don/200/200",
       email: "dcarlton@monstersuniversity.edu",
+      office: "Roar Hall 222",
       department_id: business.rows[0].id,
     },
     {
       name: "Johnny Worthington III",
+      title: "Competitive Leadership Lecturer",
       bio: "Johnny lectures on reputation, competition, and what campus leaders can learn from the Scare Games.",
       profile_image: "https://picsum.photos/seed/johnny/200/200",
       email: "jworthington@monstersuniversity.edu",
+      office: "Roar Hall 301",
       department_id: business.rows[0].id,
     },
   ];
 
   for (const p of professors) {
     await db.query(
-      `INSERT INTO professors (name, bio, profile_image, email, department_id)
-       VALUES ($1, $2, $3, $4, $5)`,
-      [p.name, p.bio, p.profile_image, p.email, p.department_id]
+      `INSERT INTO professors (name, title, bio, profile_image, email, office, department_id)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+      [p.name, p.title, p.bio, p.profile_image, p.email, p.office, p.department_id]
     );
   }
 }
