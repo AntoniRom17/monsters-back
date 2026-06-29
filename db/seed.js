@@ -7,46 +7,54 @@ console.log("🌱 Database seeded.");
 
 async function seed() {
   const scaring = await db.query(
-    `INSERT INTO departments (name, description, image_url, contact_email)
-     VALUES ($1, $2, $3, $4) RETURNING *`,
+    `INSERT INTO departments (name, description, image_url, contact_email, phone, location)
+     VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
     [
       "School of Scaring",
       "The signature Monsters University program, where students study scare technique, room entry, roar control, and performance under pressure.",
       "https://images2.alphacoders.com/688/thumb-1920-688538.jpg",
       "scaring@monstersuniversity.edu",
+      "555-0131",
+      "Scare Hall",
     ]
   );
 
   const doors = await db.query(
-    `INSERT INTO departments (name, description, image_url, contact_email)
-     VALUES ($1, $2, $3, $4) RETURNING *`,
+    `INSERT INTO departments (name, description, image_url, contact_email, phone, location)
+     VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
     [
       "Department of Door Technology",
       "A hands-on program focused on portal mechanics, door storage systems, safety procedures, and the technology used to reach the human world.",
       "https://www.springscreative.com/cdn/shop/files/tiled_preview_square_20250725_140459_9668b5fc-426b-4e82-b1d5-948e4562570e.png?v=1764615635",
       "doors@monstersuniversity.edu",
+      "555-0199",
+      "Innovation Hall",
     ]
   );
 
   const energy = await db.query(
-    `INSERT INTO departments (name, description, image_url, contact_email)
-     VALUES ($1, $2, $3, $4) RETURNING *`,
+    `INSERT INTO departments (name, description, image_url, contact_email, phone, location)
+     VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
     [
       "Scream Energy Research",
       "Students and faculty research scream collection, energy storage, laugh power theory, and sustainable power for the monster world.",
       "https://i.pinimg.com/564x/ea/11/35/ea113567c23118eeb67e5e51f5981b1d.jpg",
       "energy@monstersuniversity.edu",
+      "555-0144",
+      "Energy Research Center",
     ]
   );
 
   const business = await db.query(
-    `INSERT INTO departments (name, description, image_url, contact_email)
-     VALUES ($1, $2, $3, $4) RETURNING *`,
+    `INSERT INTO departments (name, description, image_url, contact_email, phone, location)
+     VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
     [
       "Monster Business and Leadership",
       "A department for monsters who want to lead teams, run scare operations, manage fraternities and sororities, or start their own monster-world company.",
       "https://images.squarespace-cdn.com/content/v1/60241cb68df65b530cd84d95/1721159001853-Y0EKLS9ZIXW9HZE7S6NR/Monsters14.jpg",
       "business@monstersuniversity.edu",
+      "555-0188",
+      "Roar Hall",
     ]
   );
 

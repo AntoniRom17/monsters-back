@@ -13,7 +13,9 @@ CREATE TABLE departments (
   name TEXT NOT NULL,
   description TEXT,
   image_url TEXT,
-  contact_email TEXT
+  contact_email TEXT,
+  phone TEXT,
+  location TEXT
 );
 
 CREATE TABLE professors (

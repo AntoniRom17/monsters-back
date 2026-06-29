@@ -7,7 +7,11 @@ const router = express.Router();
 // GET all professors - public
 router.get("/", async (req, res) => {
   try {
-    const result = await db.query("SELECT * FROM professors");
+    const result = await db.query(
+      `SELECT professors.*, departments.name AS department_name
+       FROM professors
+       LEFT JOIN departments ON professors.department_id = departments.id`
+    );
     res.json(result.rows);
   } catch (err) {
     res.status(500).json({ error: err.message });
